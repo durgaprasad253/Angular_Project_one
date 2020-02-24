@@ -1,0 +1,11 @@
+COding IDE's
+
+1) Visual Studio Code.
+
+2) PyCharm for Python.
+
+3) Reveal JS for presentation.
+
+4) CS50 cloud based platform for multiple Languages. LINK - ( https://sandbox.cs50.io/ )
+ 
+5) Subilmne for python.

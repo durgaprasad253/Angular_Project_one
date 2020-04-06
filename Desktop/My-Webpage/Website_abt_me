@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head> 
+
+<!-- <link rel="stylesheet" href="Website_abt_me.css"> The below effects can also be added using the link tag inside head tag -->
+
+<style>
+.different
+{
+  color:rgb(0,0,0);
+  font-family:ComicSans;
+  
+}
+body
+{
+	border:2px solid rgba(0,0,0,0.3);
+	padding : 10px
+}
+
+</style>
+
+<!-- The 'style' tag can be placed inside head for general putpose for/inside body tags -->
+<!-- Have used 'p' tag that defines color and font type to be used in all 'p' tags inside the body. -->
+<!-- Have used 'body' tag inside which 'border' tag is used to provide border for all contents in the body tag.-->
+<!-- Have used padding tag the defines the space between border and text -->
+
+<title> Amit-Resume</title>
+</head>
+
+<body style = "background-color:AquaMarine ;">                              
+<h1 style = "text-align:center;"><i> My personal website.</i> </h1>         
+<hr>
+
+<!-- The body tag contains an attribute called style with backround color -->
+<!-- Here style  contains an attribute text align which align's text in desired place--> 
+<!-- 'hr' tag is used to draw a horizontal line.-->
+
+<a href="https://www.google.co.in/" target = "_blank">
+<img src = "final.jpg" alt="" style = " width:150px; height:200px; box-shadow:0px 0px 4px 3px rgba(0,0,0, 0.5); border-radius:5px">  </a>
+<br> <p class = "different"> Hey guys this is me, Amit! </p> 
+        
+<!-- Class concept is used here -->	
+<!-- 'img' tag is used to add an image-->
+<!-- Here the imgae gets a box of shadow around it -->
+																									
+	
+	
+
+ 
+<q style = "background-color:rgb(191, 255, 0);">Mark your existence by making a <b>dent</b> in the world!</q> 
+<pre>                                  -Steve Jobs</pre>  
+
+<!-- Quote tag is introduced here-->
+<!-- Backround-color here is used inside a particula tag-->
+
+
+																												 				
+																											
+</body>
+</html>
+

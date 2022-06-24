@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  title: String = 'Product Hunt';
+  title: String = 'Portfolio';
 
   constructor() { }
 

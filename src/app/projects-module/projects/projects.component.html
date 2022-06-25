@@ -1,7 +1,14 @@
-<h1>
-    Projects from projects module
-</h1>
+<main id="project-content">
+    <!--Here goes the main content of the index page-->
+    <!--This content is loaded dynamically-->
+    <h2>List of all the active projects</h2>
+    <p *ngFor="let project of projects">
+            <b style="font-size: 20px;">{{project.projectName}}</b>
+         <br> 
+         Department :  {{project.projectDept}} 
+         <br>
+         Project Head: {{project.projectHead}}
+    </p>
 
-<app-projects>
-    <h1>Projects from projects module</h1>
-</app-projects>
+    <button (click)="returnBack()">Return Back</button>
+</main>

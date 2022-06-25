@@ -16,7 +16,6 @@ const routes: Routes = [
   },
   {
     path: 'projects', loadChildren: () => import('./projects-module/projects-module.module').then(m => m.ProjectsModuleModule),
-    pathMatch: 'full',
   },
 ];
 

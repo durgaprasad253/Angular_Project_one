@@ -1,0 +1,14 @@
+<main id="project-content">
+    <!--Here goes the main content of the index page-->
+    <!--This content is loaded dynamically-->
+    <h2>List of all the active projects</h2>
+    <p *ngFor="let project of projects">
+            <b style="font-size: 20px;">{{project.projectName}}</b>
+         <br> 
+         Department :  {{project.projectDept}} 
+         <br>
+         Project Head: {{project.projectHead}}
+    </p>
+
+    <button (click)="returnBack()">Return Back</button>
+</main>

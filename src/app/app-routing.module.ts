@@ -1,14 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import {ProjectsComponent} from '../app/components/projects/projects.component';
-//import {ProfileComponent} from '../app/components/profile/profile.component';
+import { HomeComponent } from './components/home/home.component';
+import { ProfileComponent } from './components/profile/profile.component';
+
 
 
 
 const routes: Routes = [
-  { path: './components/projects', component: ProjectsComponent },
-  //{ path: './components/profile', component: ProfileComponent }
+  {
+    path: '', component: HomeComponent
+  },
+  {
+    path: 'profile', component: ProfileComponent
+  },
+  {
+    path: 'projects', loadChildren: () => import('./projects-module/projects-module.module').then(m => m.ProjectsModuleModule),
+  },
 ];
 
 @NgModule({
@@ -16,6 +24,9 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule,
   ]
 })
 export class AppRoutingModule { }

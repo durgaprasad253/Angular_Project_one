@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -16,7 +17,6 @@ const routes: Routes = [
   },
   {
     path: 'projects', loadChildren: () => import('./projects-module/projects-module.module').then(m => m.ProjectsModuleModule),
-    pathMatch: 'full',
   },
 ];
 

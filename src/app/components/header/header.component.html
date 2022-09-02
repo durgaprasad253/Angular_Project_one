@@ -5,8 +5,9 @@
     <div>
         <nav>
             <a routerLinkActive="active" href="" class="nav-links">Home</a>
-            <a routerLinkActive="active" routerLink="/projects" class="nav-links">Projects</a>
-            <a routerLinkActive="active" routerLink="/profile" class="nav-links">Profile</a>
+            <a *ngIf="auth.isLoggedIn" routerLink="/projects" class="nav-links">Projects</a>
+            <a *ngIf="auth.isLoggedIn" routerLink="/profile" class="nav-links">Profile</a>
+            <a (click)="toggleLogin()">{{auth.isLoggedIn ? 'Logout' : 'Login'}}</a>
         </nav>
     </div>
 </header>

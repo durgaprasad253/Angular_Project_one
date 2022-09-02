@@ -9,6 +9,16 @@ import { RouterModule } from '@angular/router';
 import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { SignupFormComponent } from './components/signup-form/signup-form.component';
+import { FormGroup } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFireModule} from '@angular/fire/compat'
+import { environment } from 'src/environments/environment';
+import { provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp } from 'firebase/app';
+import { provideAuth,getAuth } from '@angular/fire/auth'
 
 @NgModule({
   declarations: [
@@ -18,11 +28,18 @@ import { AppRoutingModule } from './app-routing.module';
     FooterComponent,
     ProfileComponent,
     HomeComponent,
+    LoginFormComponent,
+    SignupFormComponent,
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideAuth(() => getAuth())
   ],
   providers: [],
   bootstrap: [AppComponent]

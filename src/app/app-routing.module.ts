@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
@@ -6,8 +6,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './services/auth-guard.guard'
 import { SignupFormComponent } from './components/signup-form/signup-form.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
-
-
+import { OtpLoginFormComponent } from './components/otp-login-form/otp-login-form.component';
+import { PhoneNumberComponent } from './components/phone-number/phone-number.component';
 
 const routes: Routes = [
   {
@@ -28,6 +28,14 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupFormComponent,
+  },
+  {
+    path: 'phoneLogin',
+    component: OtpLoginFormComponent,
+  },
+  {
+    path: 'phoneNumber',
+    component: PhoneNumberComponent
   },
   {
     path: '**',

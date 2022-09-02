@@ -18,7 +18,11 @@ import { AngularFireModule} from '@angular/fire/compat'
 import { environment } from 'src/environments/environment';
 import { provideFirebaseApp } from '@angular/fire/app';
 import { initializeApp } from 'firebase/app';
-import { provideAuth,getAuth } from '@angular/fire/auth'
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { OtpLoginFormComponent } from './components/otp-login-form/otp-login-form.component';
+import { NgOtpInputModule } from 'ng-otp-input';
+import { PhoneNumberComponent } from './components/phone-number/phone-number.component';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +34,9 @@ import { provideAuth,getAuth } from '@angular/fire/auth'
     HomeComponent,
     LoginFormComponent,
     SignupFormComponent,
+    OtpLoginFormComponent,
+    PhoneNumberComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -37,6 +44,8 @@ import { provideAuth,getAuth } from '@angular/fire/auth'
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    NgOtpInputModule,
+
     AngularFireModule.initializeApp(environment.firebaseConfig),
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth())

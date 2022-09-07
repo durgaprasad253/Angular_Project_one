@@ -12,9 +12,9 @@ export class AuthServiceService {
   constructor(
     public auth: AngularFireAuth,
     private router: Router
-    ) {}
+  ) { }
 
-  signin(email: string, password: string){
+  signin(email: string, password: string) {
     return this.auth.signInWithEmailAndPassword(email, password).then((res) => {
       this.isLoggedIn = true;
     });
@@ -37,6 +37,6 @@ export class AuthServiceService {
     return this.auth.signInWithPopup(
       new GoogleAuthProvider).then(res => this.router.navigate(['']))
   }
-  
-  
+
+
 }

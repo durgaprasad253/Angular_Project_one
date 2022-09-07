@@ -2,13 +2,8 @@
     <h2>List of all active projects </h2>
 
     <p *ngFor="let project of projects">
-        <b style="font-size: 20px;">{{project.projectName}}</b>
+        <b style="font-size: 20px;">{{project.name}}</b>
         <br>
-
-        Department : {{project.projectDept}}
-
-        <br>
-
-        Project Head : {{project.projectHead}}
+        Techstack : {{project.techstack}}
     </p>
 </main>

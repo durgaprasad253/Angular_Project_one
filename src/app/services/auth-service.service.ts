@@ -35,7 +35,12 @@ export class AuthServiceService {
 
   GoogleLogin() {
     return this.auth.signInWithPopup(
-      new GoogleAuthProvider).then(res => this.router.navigate(['']))
+      new GoogleAuthProvider()).then(res => {
+         this.isLoggedIn = true;
+        localStorage.setItem('token',JSON.stringify(res.user?.uid));
+
+        this.router.navigate(['']);
+  })
   }
 
 

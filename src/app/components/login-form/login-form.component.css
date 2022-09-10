@@ -39,3 +39,21 @@ form {
   #phone{
     float: right;
   }
+
+  a {
+    text-decoration: underline;
+  }
+
+  a:hover {
+    cursor: pointer;
+  }
+
+  #googleAuth {
+    padding-top: 2%;
+    padding-left: 30%;
+    padding-bottom: 2%;
+  }
+
+  #phoneAuth {
+    padding-left: 30%;
+  }

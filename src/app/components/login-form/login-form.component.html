@@ -10,14 +10,17 @@
   
       <button type="submit" (click)="login()">Log In</button>
 
-      <div (click)="googleLogin()">
-        Log in with Google
-      </div>
+      <div class="OAuth">  
 
-      <div>
-        <a routerLink="/phoneNumber">Login with phone number</a>
-      </div>
+        <div (click)="googleLogin()" id="googleAuth">
+          <a>Login with Google</a>
+        </div>
+
+        <div id="phoneAuth">
+          <a routerLink="/phoneNumber">Login with phone number</a>
+        </div>
     
+      </div>
     </div>
     
   

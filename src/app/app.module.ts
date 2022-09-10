@@ -24,6 +24,7 @@ import { NgOtpInputModule } from 'ng-otp-input';
 import { PhoneNumberComponent } from './components/phone-number/phone-number.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,7 @@ import { PhoneNumberComponent } from './components/phone-number/phone-number.com
     SignupFormComponent,
     OtpLoginFormComponent,
     PhoneNumberComponent,
+    
     
   ],
   imports: [

@@ -1,0 +1,48 @@
+<div class="container">
+    <h1>Add Project</h1>
+
+<form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+    
+    <label for="projectName">Project Name : </label>
+    <input id="projectName" type="text" 
+    formControlName="projectName">
+    <br>
+
+    <label for="description">Project Description : </label>
+    <input id="description" type="text"
+    formControlName="description">
+    <br>
+
+    <label for="startDate">Start Date : </label>
+    <input id="startDate" type="datetime-local"
+    formControlName="startDate">
+    <br>
+
+    <label for="duration">Project Duration(In weeks) : </label>
+    <input id="duration" type="number"
+    formControlName="duration">
+    <br>
+
+    <label for="budget">Project Weeks (In INR) : </label>
+    <input id="budget" type="number"
+    formControlName="budget">
+    <br>
+
+    <label for="status">Project Status : </label>
+    <select name="status" id="status" formControlName="status">
+        <option value="New">New</option>
+        <option value="Budgeted">Budgeted</option>
+        <option value="in-progress">in-progress</option>
+        <option value="completed">completed</option> 
+    </select>
+    <br>
+
+    <label for="staffCost">Staff Cost : </label>
+    <input id="staffCost" type="number"
+    formControlName="staffCost">
+    <br>
+    
+    <input type="submit" class="btn" value="Save">
+
+ </form>
+</div>

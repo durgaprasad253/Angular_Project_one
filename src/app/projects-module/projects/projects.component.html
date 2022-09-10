@@ -1,9 +1,27 @@
-<main id="project-content">
-    <h2>List of all active projects </h2>
+<div>
+    <h2>Project List</h2>
 
-    <p *ngFor="let project of projects">
-        <b style="font-size: 20px;">{{project.name}}</b>
-        <br>
-        Techstack : {{project.techstack}}
-    </p>
-</main>
+    <button routerLink="add-project">Add Project</button>
+
+    <br>
+    <br>
+
+    <table id="projects">
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th style="width: 15px;"></th>
+        <th style="width: 15px;"></th>
+      </tr>
+      <tr *ngFor="let project of projects">
+        <td>{{ project?.id }}</td>
+        <td>{{ project?.name }}</td>
+        <td><a routerLink="details">✎</a></td>
+        <td>🗑️</td>
+      </tr>
+    </table>
+    
+    <br>
+    <button (click)="back()">BACK</button>
+    
+  </div>

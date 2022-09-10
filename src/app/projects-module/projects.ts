@@ -1,25 +1,11 @@
-export const  projectList = [
-    {
-        projectName:"Project 1",
-        projectDept:"IT",
-        projectHead:"Person A"
-    },
+import { Timestamp } from "rxjs";
 
-    {
-        projectName:"Project 2",
-        projectDept:"Accounts",
-        projectHead:"Person B"
-    },
-
-    {
-        projectName:"Project 3",
-        projectDept:"Human Resource",
-        projectHead:"Person C"
-    },
-
-    {
-        projectName:"Project 4",
-        projectDept:"Operations",
-        projectHead:"Person D"
-    },
-];
+export interface projectSchema {
+    budget: Number;
+    description: String;
+    duration: Number;
+    name: String;
+    staffCost: Number;
+    startDate: Date;
+    status: String;
+}

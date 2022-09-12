@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GetProjectServiceService } from 'src/app/services/get-project-service.service';
 import { projectSchema } from '../projects';
 import { Location } from '@angular/common';
-import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { ProjectsComponent } from '../projects/projects.component';
 
 
 @Component({
@@ -12,26 +12,52 @@ import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 })
 export class AddProjectComponent implements OnInit {
 
-  projectForm = new FormGroup({
-    name: new FormControl(''),
-    description: new FormControl(''),
-    startDate: new FormControl(''),
-    duration: new FormControl(''),
-    budget: new FormControl(''),
-    status: new FormControl(''),
-    staffCost: new FormControl(''),
-  });
+  project!: projectSchema;
 
-  constructor(private location: Location, private getProjectService: GetProjectServiceService) {}
+
+  constructor(private location: Location, private getProjectService: GetProjectServiceService, private projectComponent: ProjectsComponent) {}
 
   ngOnInit(): void {
+    if(ProjectsComponent.updateFlag === true){
+        this.project = ProjectsComponent.projectEdit;
+    }
+    else{
+      this.project = {
+        id: '',
+        name: '',
+        description: '',
+        startDate: new Date(),
+        duration: 0,
+        budget: 0,
+        status: '',
+        staffCost: 0
+      }
+    }
   }
 
   onSubmit() {
-      const newProject = this.projectForm.value;
-      console.log(typeof(newProject));
-      this.getProjectService.adddProject(newProject);
-      
+      if(this.project?.name != '' && this.project?.description != '' && this.project?.status != '' && ProjectsComponent.updateFlag===false ){
+        this.getProjectService.adddProject(this.project);
+        this.project.name = '',
+        this.project.description= '',
+        this.project.staffCost= 0,
+        this.project.budget= 0,
+        this.project.status= '',
+        this.project.duration= 0,
+        this.project.startDate = new Date();
+        this.location.back();
+      }
+      else if(this.project?.name != '' && this.project?.description != '' && this.project?.status != '' && ProjectsComponent.updateFlag===true){
+        this.getProjectService.updateProject(this.project);
+        this.project.name = '',
+        this.project.description= '',
+        this.project.staffCost= 0,
+        this.project.budget= 0,
+        this.project.status= '',
+        this.project.duration= 0,
+        this.project.startDate = new Date();
+        this.location.back();
+      }
     }
   }
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { map,Observable } from 'rxjs';
 import { projectSchema } from '../projects-module/projects'
 
 @Injectable({
@@ -8,14 +8,20 @@ import { projectSchema } from '../projects-module/projects'
 })
 export class GetProjectServiceService {
 
-  projectCollections: AngularFirestoreCollection<projectSchema>;
-  projects: Observable<projectSchema[]>
-  snapshot: any;
+  private projectCollections: AngularFirestoreCollection<projectSchema>;
+  private projectDoc: AngularFirestoreDocument<projectSchema> | undefined
+  private projects: Observable<projectSchema[]>
 
   constructor(private firestore: AngularFirestore) {
     this.projectCollections = firestore.collection<projectSchema>('projects');
-    this.projects = this.projectCollections.valueChanges({idField: 'id'});
-    this.snapshot = this.projectCollections.snapshotChanges();
+    this.projects = this.projectCollections.snapshotChanges().pipe(map(action => action.map(temp =>{
+      const data = temp.payload.doc.data() as projectSchema;
+
+      data.id = temp.payload.doc.id;
+
+      return data;
+    })));
+    
    }
 
   getProjects() {
@@ -25,6 +31,15 @@ export class GetProjectServiceService {
   adddProject(project: projectSchema) {
       this.projectCollections.add(project);
    }
+
+  updateProject(project: projectSchema) {
+    this.firestore.doc('projects/'+project.id).update(project);
+  }
+
+  deleteProject(project: projectSchema) {
+    this.projectDoc = this.firestore.doc('projects/'+project.id)
+    this.projectDoc.delete()
+  }
 
 
 }

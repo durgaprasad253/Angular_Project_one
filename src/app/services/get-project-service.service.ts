@@ -28,12 +28,15 @@ export class GetProjectServiceService {
    }
 
   deleteProject(project: projectSchema) {
+    console.log(project)
     this.projectDoc = this.firestore.doc('projects/'+project.id)
     this.projectDoc.delete()
   }
 
   updateProject(project: projectSchema) {
-    this.firestore.doc('projects.id'+project.id).update(project);
+    console.log(project)
+    this.firestore.doc('projects/'+project.id).update(project);
+    
   }
 
 

@@ -17,7 +17,7 @@ import { Router } from '@angular/router';
 @Injectable({providedIn:'root'})
 export class ProjectsComponent implements OnInit {
 
-  projects: any;
+  projects:projectSchema[]
   static updateFlag: boolean = false;
   static projectEdit: projectSchema;
 

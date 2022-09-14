@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,OnDestroy} from '@angular/core';
 import { GetProjectServiceService } from 'src/app/services/get-project-service.service';
 import { projectSchema } from '../projects';
 import { Location } from '@angular/common';
@@ -10,9 +10,9 @@ import { ProjectsComponent } from '../projects/projects.component';
   templateUrl: './add-project.component.html',
   styleUrls: ['./add-project.component.css']
 })
-export class AddProjectComponent implements OnInit {
+export class AddProjectComponent implements OnInit,OnDestroy {
 
-  project!: projectSchema;
+  project: projectSchema;
 
 
   constructor(private location: Location, private getProjectService: GetProjectServiceService, private projectComponent: ProjectsComponent) {}
@@ -22,39 +22,22 @@ export class AddProjectComponent implements OnInit {
         this.project = ProjectsComponent.projectEdit;
     }
     else{
-      this.project = {
-        name: '',
-        description: '',
-        startDate: new Date(),
-        duration: 0,
-        budget: 0,
-        status: '',
-        staffCost: 0
-      }
+      this.project ={}
     }
+  }
+  ngOnDestroy(): void {
+    ProjectsComponent.projectEdit={}
   }
 
   onSubmit() {
-      if(this.project?.name != '' && this.project?.description != '' && this.project?.status != '' && ProjectsComponent.updateFlag===false ){
+      if( ProjectsComponent.updateFlag===false ){
         this.getProjectService.adddProject(this.project);
-        this.project.name = '',
-        this.project.description= '',
-        this.project.staffCost= 0,
-        this.project.budget= 0,
-        this.project.status= '',
-        this.project.duration= 0,
-        this.project.startDate = new Date();
+       this.project={}
         this.location.back();
       }
-      else if(this.project?.name != '' && this.project?.description != '' && this.project?.status != '' && ProjectsComponent.updateFlag===true){
+      else if( ProjectsComponent.updateFlag===true){
         this.getProjectService.updateProject(this.project);
-        this.project.name = '',
-        this.project.description= '',
-        this.project.staffCost= 0,
-        this.project.budget= 0,
-        this.project.status= '',
-        this.project.duration= 0,
-        this.project.startDate = new Date();
+       this.project={}
         this.location.back();
       }
     }

@@ -1,7 +1,7 @@
 import { Timestamp } from "rxjs";
 
 export interface projectSchema {
-    id: String;
+    id?: String;
     budget: Number;
     description: String;
     duration: Number;

@@ -1,45 +1,39 @@
-<div class="container">
+<div>
     <h1>Add Project</h1>
 
-<form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()">
     
     <label for="projectName">Project Name : </label>
-    <input id="projectName" type="text" 
-    formControlName="projectName">
+    <input [(ngModel)]="project.name" id="projectName" type="text" name="name">
     <br>
 
     <label for="description">Project Description : </label>
-    <input id="description" type="text"
-    formControlName="description">
+    <input [(ngModel)]="project.description" id="description" type="text" name="description">
     <br>
 
     <label for="startDate">Start Date : </label>
-    <input id="startDate" type="datetime-local"
-    formControlName="startDate">
+    <input [(ngModel)]="project.startDate" id="startDate" type="datetime-local" name="startDate">
     <br>
 
     <label for="duration">Project Duration(In weeks) : </label>
-    <input id="duration" type="number"
-    formControlName="duration">
+    <input [(ngModel)]="project.duration" id="duration" type="number" name="duration">
     <br>
 
     <label for="budget">Project Weeks (In INR) : </label>
-    <input id="budget" type="number"
-    formControlName="budget">
+    <input [(ngModel)]="project.budget" id="budget" type="number" name="budget">
     <br>
 
     <label for="status">Project Status : </label>
-    <select name="status" id="status" formControlName="status">
-        <option value="New">New</option>
-        <option value="Budgeted">Budgeted</option>
-        <option value="in-progress">in-progress</option>
+    <select  [(ngModel)]="project.status" id="status" name="status">
+        <option value="New" >New</option>
+        <option value="Budgeted" >Budgeted</option>
+        <option value="in-progress" >in-progress</option>
         <option value="completed">completed</option> 
     </select>
     <br>
 
-    <label for="staffCost">Staff Cost : </label>
-    <input id="staffCost" type="number"
-    formControlName="staffCost">
+    <label  for="staffCost">Staff Cost : </label>
+    <input  [(ngModel)]="project.staffCost" id="staffCost" type="number" name="staffCost">
     <br>
     
     <input type="submit" class="btn" value="Save">

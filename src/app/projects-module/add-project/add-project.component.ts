@@ -23,7 +23,6 @@ export class AddProjectComponent implements OnInit {
     }
     else{
       this.project = {
-        id: '',
         name: '',
         description: '',
         startDate: new Date(),

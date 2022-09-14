@@ -19,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: 'projects', loadChildren: () => import('./projects-module/projects-module.module').then(m => m.ProjectsModuleModule),
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
